@@ -35,6 +35,7 @@
       <button type="button" id="btn-night" aria-pressed="false" title="Toggle day / night (N)">🌙 Night</button>
       <button type="button" id="btn-fly" aria-pressed="false" title="Toggle orbit / fly camera (F)">✈️ Fly</button>
       <button type="button" id="btn-shot" title="Save a screenshot (P)">📸 Photo</button>
+      <button type="button" id="btn-home" title="Fit the whole city on screen (H, or double-click)">⌖ Fit</button>
       <button type="button" id="btn-replay" title="Replay intro (R)">↻ Replay</button>
     </div>
     <div id="panel-body">
@@ -45,10 +46,12 @@
         <div><dt>Active days</dt><dd id="stat-active">0</dd></div>
       </dl>
       <p class="help" id="help"></p>
+      <p class="note">Public profile data only. No login, no tokens, no repo names. Private work appears only as anonymous counts, and only if its owner chose to show it on their profile.</p>
     </div>
   </header>
 
   <div id="tooltip" class="tooltip" hidden></div>
+  <button type="button" id="btn-lost" class="lost" hidden>⌖ Back to the city</button>
 
   <div id="touchpad" class="touchpad" hidden aria-hidden="true">
     <div class="pad">

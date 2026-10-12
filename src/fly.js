@@ -72,15 +72,16 @@ export class FlyControls {
     }
   }
 
+  /** Moves the camera; returns true if it moved. */
   update(dt) {
-    if (!this.enabled) return;
+    if (!this.enabled) return false;
     const k = this.keys;
     const move = new THREE.Vector3(
       (k.has('KeyD') || k.has('ArrowRight') ? 1 : 0) - (k.has('KeyA') || k.has('ArrowLeft') ? 1 : 0),
       (k.has('KeyE') || k.has('Space') ? 1 : 0) - (k.has('KeyQ') || k.has('ControlLeft') ? 1 : 0),
       (k.has('KeyS') || k.has('ArrowDown') ? 1 : 0) - (k.has('KeyW') || k.has('ArrowUp') ? 1 : 0),
     );
-    if (move.lengthSq() === 0) return;
+    if (move.lengthSq() === 0) return false;
     const speed = MOVE_SPEED * (k.has('ShiftLeft') || k.has('ShiftRight') ? 2.5 : 1) * dt;
     const vertical = move.y;
     move.y = 0;
@@ -88,6 +89,7 @@ export class FlyControls {
     move.y += vertical * speed;
     this.camera.position.add(move);
     this.camera.position.y = Math.max(MIN_HEIGHT, this.camera.position.y);
+    return true;
   }
 
   dispose() {

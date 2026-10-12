@@ -141,6 +141,12 @@ export class City {
     this.#buildGround();
     this.#buildTowers();
     this.#buildParks();
+    this.maxHeight = this.towerSlots.reduce((m, d) => Math.max(m, d.height), 1);
+    // Everything the camera should keep in view.
+    this.bounds = new THREE.Box3(
+      new THREE.Vector3(-this.width / 2, 0, -this.depth / 2),
+      new THREE.Vector3(this.width / 2, this.maxHeight, this.depth / 2),
+    );
     this.setProgress(1);
   }
 
