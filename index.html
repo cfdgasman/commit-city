@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Commit City</title>
+  <meta name="description" content="Your GitHub contribution history, rebuilt as a 3D city you can fly through.">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='14' width='6' height='15' fill='%2339d353'/><rect x='12' y='6' width='7' height='23' fill='%23f2b134'/><rect x='22' y='10' width='7' height='19' fill='%2326a641'/></svg>">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-label="3D city built from GitHub contributions"></canvas>
+
+  <header class="panel" id="panel">
+    <div class="panel-head">
+      <h1>Commit <span>City</span></h1>
+      <button type="button" id="btn-collapse" class="collapse" aria-expanded="true" aria-controls="panel-body" title="Show / hide details">▾</button>
+    </div>
+    <form id="user-form" autocomplete="off">
+      <label class="visually-hidden" for="username">GitHub username</label>
+      <input id="username" name="user" placeholder="GitHub username" spellcheck="false" autocapitalize="off" maxlength="39" required>
+      <button type="submit">Build</button>
+    </form>
+    <p id="status" class="status" role="status" aria-live="polite">Loading…</p>
+    <div class="toolbar">
+      <button type="button" id="btn-night" aria-pressed="false" title="Toggle day / night (N)">🌙 Night</button>
+      <button type="button" id="btn-fly" aria-pressed="false" title="Toggle orbit / fly camera (F)">✈️ Fly</button>
+      <button type="button" id="btn-shot" title="Save a screenshot (P)">📸 Photo</button>
+      <button type="button" id="btn-replay" title="Replay intro (R)">↻ Replay</button>
+    </div>
+    <div id="panel-body">
+      <dl id="stats" class="stats" hidden>
+        <div><dt>Contributions</dt><dd id="stat-total">0</dd></div>
+        <div><dt>Best day</dt><dd id="stat-best">0</dd></div>
+        <div><dt>Longest streak</dt><dd id="stat-streak">0</dd></div>
+        <div><dt>Active days</dt><dd id="stat-active">0</dd></div>
+      </dl>
+      <p class="help" id="help"></p>
+    </div>
+  </header>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+
+  <div id="touchpad" class="touchpad" hidden aria-hidden="true">
+    <div class="pad">
+      <button data-key="KeyW" aria-label="Forward">▲</button>
+      <button data-key="KeyA" aria-label="Left">◀</button>
+      <button data-key="KeyS" aria-label="Back">▼</button>
+      <button data-key="KeyD" aria-label="Right">▶</button>
+    </div>
+    <div class="pad pad-vertical">
+      <button data-key="KeyE" aria-label="Up">⤒</button>
+      <button data-key="KeyQ" aria-label="Down">⤓</button>
+    </div>
+  </div>
+
+  <a class="credit" href="https://github.com/cfdgasman/commit-city" target="_blank" rel="noopener">source</a>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
