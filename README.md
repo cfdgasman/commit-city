@@ -15,6 +15,7 @@ Every day you coded becomes a building. Busier days make taller, brighter towers
 - **Any user:** type a GitHub username, or share a link like [`?user=torvalds`](https://cfdgasman.github.io/commit-city/?user=torvalds)
 - **One building per day:** a 53 × 7 grid, like the contribution graph. Height uses a log scale and color runs from teal to hot pink
 - **Orbit camera:** drag to orbit, scroll or pinch to zoom, right-drag or two fingers to pan
+- **Always fits:** the whole city is framed for any screen size, and it re-fits when you resize or rotate your phone. Lost? Press <kbd>H</kbd>, the **⌖ Fit** button, or double-click/double-tap to glide back
 - **Fly camera:** press <kbd>F</kbd>, drag to look, <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to move, <kbd>Q</kbd>/<kbd>E</kbd> down/up, <kbd>Shift</kbd> to boost
 - **Hover or tap** a building to see its date and count
 - **Day/night toggle** (<kbd>N</kbd>): the sun sets, the stars come out and the windows light up. Add `&night=1` to a link to start at night
@@ -23,6 +24,12 @@ Every day you coded becomes a building. Busier days make taller, brighter towers
 - **Mobile friendly:** touch orbit and pinch zoom, plus an on-screen flight pad in fly mode
 
 <img src="docs/mobile.png" alt="Fly mode on a phone, with the on-screen flight pad" width="260">
+
+## Privacy: public data only
+
+Commit City only reads the **public** contribution calendar that anyone can see on a GitHub profile. There's no login and no token, and it never sees repository names, code or commit messages. It only gets a count per day.
+
+GitHub lets each person choose whether their profile graph includes private contributions (as anonymous counts). To make your city show **only public work**, turn that off. On GitHub, open your profile, click **Contribution settings** above the contribution graph, and untick **Private contributions**. Your city will then match your public activity.
 
 ## How it works
 
